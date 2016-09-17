@@ -28,7 +28,7 @@ class WantsController < ApplicationController
 
     respond_to do |format|
       if @want.save
-        format.html { redirect_to @want, notice: 'Want was successfully created.' }
+        format.html { redirect_to wants_path, notice: 'Want was successfully created.' }
         format.json { render :show, status: :created, location: @want }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class WantsController < ApplicationController
   def update
     respond_to do |format|
       if @want.update(want_params)
-        format.html { redirect_to @want, notice: 'Want was successfully updated.' }
+        format.html { redirect_to wants_path, notice: 'Want was successfully updated.' }
         format.json { render :show, status: :ok, location: @want }
       else
         format.html { render :edit }
@@ -69,6 +69,7 @@ class WantsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def want_params
+      params[:want][:user_id] = current_user.id
       params.require(:want).permit(:user_id, :about)
     end
 end
