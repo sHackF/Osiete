@@ -16,25 +16,23 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :title, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
+    <%= f.label 'タイトル', :class => 'control-label col-lg-2' %>
+    <div class="col-lg-6">
       <%= f.text_field :title, :class => 'form-control' %>
     </div>
     <%=f.error_span(:title) %>
   </div>
   <div class="form-group">
-    <%= f.label :about, :class => 'control-label col-lg-2' %>
+    <%= f.label '詳しく！', :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :about, :class => 'form-control' %>
+      <%= f.text_area :about, :class => 'form-control', :row => '10' %>
     </div>
     <%=f.error_span(:about) %>
   </div>
 
   <div class="form-group">
     <div class="col-lg-offset-2 col-lg-10">
-      <%= f.submit nil, :class => 'btn btn-primary' %>
-      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                wants_path, :class => 'btn btn-default' %>
+      <%= f.submit '作成', :class => 'btn btn-primary' %>
     </div>
   </div>
 
