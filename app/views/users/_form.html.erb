@@ -44,7 +44,7 @@
     <%=f.error_span(:about) %>
   </div>
 
-    <div class="field">
+    <div class="field" style="float: left; margin-left: 50px; margin-right: 50px">
       <%= f.label :興味ある %>
       <% @tags.each do |t| %>
           <label><%= f.check_box_tag :interest, t.id %><%= t.name %></label>
