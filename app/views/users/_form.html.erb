@@ -31,6 +31,16 @@
     <%= f.text_area :about %>
   </div>
 
+    <div class="field">
+      <%= f.label :興味ある %>
+      <%= f.select_tag :interest, options_for_select(@tags.map{|t| [t.name, t.id]}) %>
+    </div>
+
+    <div class="field">
+      <%= f.label :得意 %>
+      <%= f.select_tag :specialty, options_for_select(@tags.map{|t| [t.name, t.id]}) %>
+    </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
