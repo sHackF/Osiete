@@ -28,7 +28,7 @@ class GivesController < ApplicationController
 
     respond_to do |format|
       if @give.save
-        format.html { redirect_to @give, notice: 'Give was successfully created.' }
+        format.html { redirect_to gives_path, notice: 'Give was successfully created.' }
         format.json { render :show, status: :created, location: @give }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class GivesController < ApplicationController
   def update
     respond_to do |format|
       if @give.update(gife_params)
-        format.html { redirect_to @give, notice: 'Give was successfully updated.' }
+        format.html { redirect_to gives_path, notice: 'Give was successfully updated.' }
         format.json { render :show, status: :ok, location: @give }
       else
         format.html { render :edit }
@@ -69,6 +69,7 @@ class GivesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def gife_params
-      params.require(:gife).permit(:user_id, :title, :about)
+      params[:give][:user_id] = current_user.id
+      params.require(:give).permit(:user_id, :title, :about)
     end
 end
