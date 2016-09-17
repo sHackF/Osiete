@@ -70,6 +70,6 @@ class WantsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def want_params
       params[:want][:user_id] = current_user.id
-      params.require(:want).permit(:user_id, :about)
+      params.require(:want).permit(:user_id, :title, :about)
     end
 end
