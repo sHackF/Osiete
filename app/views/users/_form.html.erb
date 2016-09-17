@@ -46,12 +46,16 @@
 
     <div class="field">
       <%= f.label :興味ある %>
-      <%= f.select_tag :interest, options_for_select(@tags.map{|t| [t.name, t.id]}) %>
+      <% @tags.each do |t| %>
+          <label><%= f.check_box_tag :interest, t.id %><%= t.name %></label>
+      <% end %>
     </div>
 
     <div class="field">
       <%= f.label :得意 %>
-      <%= f.select_tag :specialty, options_for_select(@tags.map{|t| [t.name, t.id]}) %>
+      <% @tags.each do |t| %>
+        <label><%= f.check_box_tag :specialty, t.id %><%= t.name %></label>
+      <% end %>
     </div>
 
   <div class="actions">
