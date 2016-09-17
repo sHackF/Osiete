@@ -14,7 +14,7 @@ class GivesController < ApplicationController
 
   # GET /gives/new
   def new
-    @gife = Give.new
+    @give = Give.new
   end
 
   # GET /gives/1/edit
@@ -24,15 +24,15 @@ class GivesController < ApplicationController
   # POST /gives
   # POST /gives.json
   def create
-    @gife = Give.new(gife_params)
+    @give = Give.new(gife_params)
 
     respond_to do |format|
-      if @gife.save
-        format.html { redirect_to @gife, notice: 'Give was successfully created.' }
-        format.json { render :show, status: :created, location: @gife }
+      if @give.save
+        format.html { redirect_to @give, notice: 'Give was successfully created.' }
+        format.json { render :show, status: :created, location: @give }
       else
         format.html { render :new }
-        format.json { render json: @gife.errors, status: :unprocessable_entity }
+        format.json { render json: @give.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -41,12 +41,12 @@ class GivesController < ApplicationController
   # PATCH/PUT /gives/1.json
   def update
     respond_to do |format|
-      if @gife.update(gife_params)
-        format.html { redirect_to @gife, notice: 'Give was successfully updated.' }
-        format.json { render :show, status: :ok, location: @gife }
+      if @give.update(gife_params)
+        format.html { redirect_to @give, notice: 'Give was successfully updated.' }
+        format.json { render :show, status: :ok, location: @give }
       else
         format.html { render :edit }
-        format.json { render json: @gife.errors, status: :unprocessable_entity }
+        format.json { render json: @give.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -54,7 +54,7 @@ class GivesController < ApplicationController
   # DELETE /gives/1
   # DELETE /gives/1.json
   def destroy
-    @gife.destroy
+    @give.destroy
     respond_to do |format|
       format.html { redirect_to gives_url, notice: 'Give was successfully destroyed.' }
       format.json { head :no_content }
@@ -64,7 +64,7 @@ class GivesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_gife
-      @gife = Give.find(params[:id])
+      @give = Give.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
